@@ -9,12 +9,12 @@ Ros talker and listner
 После начала работы входной точкой, являлся listner.py, который по endpoint localhost:8001/info ожидает пост запрос со словарем: {"data": "string"}, который передает в logger.py пост запросом. logger.py принемает и логгирует.
 # Запуск ROS app
   1) Клонируйте репрозиторий
-     ``git clone https://github.com/klimrus61/Robot.git``
+     ```git clone https://github.com/klimrus61/Robot.git```
   2) Проверте, что docker установлен и работает
   3) Создайте образ проекта
-     ``docker build -t <image-name> .``
+     ```docker build -t <image-name> .```
   4) Создайте и запустите контейнер
-     ``docker run -p 8005:8005 <image-name>``
+     ```docker run -p 8005:8005 <image-name>```
   5) Отправте post запрос на ``http://localhost:8005/info`` в body передав ``{"data": "some text"}``
 # Описание
   Входная точка приложения, находится в src/resume_pkg/scripts/publisher_node.py. Ожидает пост запрос по endpoint http://localhost:8005/info, которая принимает текст и отправляет его в топик ROS "chatter". После чего ROS NODE src/logger/scripts/logger.py ожидающая сообщения в топике "chatter", обрабатывает поступившее сообщение callback функцией, которое логгирует текст сообщения rospy.loginfo
