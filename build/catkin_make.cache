@@ -1,0 +1,2 @@
+logger:resume_pkg
+-DCATKIN_DEVEL_PREFIX=/home/resume_project/devel -DCMAKE_INSTALL_PREFIX=/home/resume_project/install -G Unix Makefiles
